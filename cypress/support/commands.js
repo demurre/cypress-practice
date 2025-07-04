@@ -31,3 +31,30 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   // failing the test
   return false;
 });
+
+// clicking link using label
+Cypress.Commands.add("clickLink", (label) => {
+  cy.get("a").contains(label).click();
+});
+
+// overwrite contains
+
+// Cypress.Commands.overwriteQuery(
+//   "contains",
+//   (originalFn, subject, filter, text, options = {}) => {
+//     if (typeof text === "object") {
+//       options = text;
+//       text = filter;
+//       filter = undefined;
+//     }
+//     options.matсhCase = false;
+//     return originalFn(subject, filter, text, options);
+//   }
+// );
+
+// login
+Cypress.Commands.add("loginapp", (email, password) => {
+  cy.visit("#email").type(email);
+  cy.visit("#password").type(password);
+  cy.get("button[type='submit']").click();
+});

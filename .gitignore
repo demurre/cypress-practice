@@ -26,3 +26,8 @@ dist-ssr
 # dotenv environment variables file
 .env
 .env.production
+
+# cypress 
+cypress/videos
+cypress/screenshots
+cypress/reports
